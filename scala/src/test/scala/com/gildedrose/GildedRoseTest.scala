@@ -13,4 +13,10 @@ class GildedRoseTest  extends AnyFlatSpec with Matchers {
     app.items(0).name should equal ("foo")
   }
 
+  "quality of an item" should "be positive" in {
+    val app = new GildedRose(items)
+    app.updateQuality()
+    val expected = 0
+    app.items(0).quality should equal(expected)
+  }
 }
