@@ -27,4 +27,20 @@ class GildedRoseTest  extends AnyFlatSpec with Matchers {
     val expected = 1
     app.items(0).quality should equal(expected)
   }
+
+  "quality of Aged Brie" should "not be more than 50" in {
+    val items = Array[Item](new Item("Aged Brie", 5, 50))
+    val app = new GildedRose(items)
+    app.updateQuality()
+    val expected = 50
+    app.items(0).quality should equal(expected)
+  }
+
+  "quality of Backstage passes" should "not be more than 50" in {
+    val items = Array[Item](new Item("Backstage passes to a TAFKAL80ETC concert", 5, 50))
+    val app = new GildedRose(items)
+    app.updateQuality()
+    val expected = 50
+    app.items(0).quality should equal(expected)
+  }
 }
