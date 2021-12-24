@@ -4,4 +4,6 @@
 2. Writing unit test for the new feature for Conjured items and refactoring the updateQuality to pass the new test
 3. Refactoring the updateQuality for more readably and maintainable code base
 
+Test Coverage: 100%
+
 Please do not hesitate to give feedbacks. Thanks in advance!
