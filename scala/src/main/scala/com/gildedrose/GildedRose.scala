@@ -60,7 +60,6 @@ class GildedRose(val items: Array[Item]) {
     case _                        => defaultUpdateQuality(item)
   }
 
-  def updateQuality() {
-   items.foreach(e => callSpecialFunction(e))
-  }
+  def updateQuality(): Unit = items.foreach(e => callSpecialFunction(e))
+
 }
