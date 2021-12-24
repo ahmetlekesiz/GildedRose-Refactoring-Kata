@@ -2,7 +2,7 @@ package com.gildedrose
 
 class GildedRose(val items: Array[Item]) {
   
-  def updateQuailtyDefault(item: Item): Unit = {
+  def updateQualityDefault(item: Item): Unit = {
     if (!item.name.equals("Aged Brie")
       && !item.name.equals("Backstage passes to a TAFKAL80ETC concert")) {
       if (item.quality > 0) {
@@ -99,7 +99,7 @@ class GildedRose(val items: Array[Item]) {
     case ItemName.AgedBrie  => AgedBrieUpdateQuality(item)
     case ItemName.Sulfuras  => SulfurasUpdateQuality
     case ItemName.BackstagePasses => BackstagePasses(item)
-    case _                  => updateQuailtyDefault(item)
+    case _                  => updateQualityDefault(item)
   }
 
   def updateQuality() {
