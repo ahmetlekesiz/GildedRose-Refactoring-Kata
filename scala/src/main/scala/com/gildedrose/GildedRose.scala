@@ -2,7 +2,7 @@ package com.gildedrose
 
 class GildedRose(val items: Array[Item]) {
 
-  def updateQualityDefault(item: Item): Unit = {
+  def defaultUpdateQuality(item: Item): Unit = {
     item.sellIn = item.sellIn - 1
     if (item.quality > 0) {
         item.quality = item.quality - 1
@@ -12,7 +12,7 @@ class GildedRose(val items: Array[Item]) {
     }
   }
 
-  def AgedBrieUpdateQuality(item: Item): Unit = {
+  def agedBrieUpdateQuality(item: Item): Unit = {
     item.sellIn = item.sellIn - 1
     if (item.quality < 50) {
       item.quality = item.quality + 1
@@ -22,7 +22,7 @@ class GildedRose(val items: Array[Item]) {
     }
   }
 
-  def BackstagePassesUpdateQuality(item: Item): Unit = {
+  def backstagePassesUpdateQuality(item: Item): Unit = {
     if (item.quality < 50) {
       item.quality = item.quality + 1
       if (item.sellIn < 11) {
@@ -42,7 +42,7 @@ class GildedRose(val items: Array[Item]) {
     }
   }
 
-  def ConjuredUpdateQuality(item: Item): Unit = {
+  def conjuredUpdateQuality(item: Item): Unit = {
     item.sellIn = item.sellIn - 1
     if (item.quality > 0) {
       item.quality = item.quality - 2
@@ -53,11 +53,11 @@ class GildedRose(val items: Array[Item]) {
   }
 
   def callSpecialFunction(item: Item): Unit = item.name match {
-    case ItemName.AgedBrie  => AgedBrieUpdateQuality(item)
-    case ItemName.Sulfuras  => ()
-    case ItemName.BackstagePasses => BackstagePassesUpdateQuality(item)
-    case ItemName.Conjured => ConjuredUpdateQuality(item)
-    case _                  => updateQualityDefault(item)
+    case ItemName.AgedBrie        => agedBrieUpdateQuality(item)
+    case ItemName.Sulfuras        => ()
+    case ItemName.BackstagePasses => backstagePassesUpdateQuality(item)
+    case ItemName.Conjured        => conjuredUpdateQuality(item)
+    case _                        => defaultUpdateQuality(item)
   }
 
   def updateQuality() {
