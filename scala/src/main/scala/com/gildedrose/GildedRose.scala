@@ -24,8 +24,6 @@ class GildedRose(val items: Array[Item]) {
     }
   }
 
-  def SulfurasUpdateQuality: Unit = {}
-
   def BackstagePassesUpdateQuality(item: Item): Unit = {
     if (item.quality < 50) {
       item.quality = item.quality + 1
@@ -60,7 +58,7 @@ class GildedRose(val items: Array[Item]) {
 
   def callSpecialFunction(item: Item): Unit = item.name match {
     case ItemName.AgedBrie  => AgedBrieUpdateQuality(item)
-    case ItemName.Sulfuras  => SulfurasUpdateQuality
+    case ItemName.Sulfuras  => ()
     case ItemName.BackstagePasses => BackstagePassesUpdateQuality(item)
     case ItemName.Conjured => ConjuredUpdateQuality(item)
     case _                  => updateQualityDefault(item)
