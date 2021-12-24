@@ -2,7 +2,7 @@ package com.gildedrose.strategy
 
 import com.gildedrose.Item
 
-case class BackstagePassesStrategy() extends Strategy {
+class BackstagePassesStrategy() extends Strategy {
   override def updateQuality(item: Item): Unit = {
     if (item.quality < 50) {
       item.quality = item.quality + 1

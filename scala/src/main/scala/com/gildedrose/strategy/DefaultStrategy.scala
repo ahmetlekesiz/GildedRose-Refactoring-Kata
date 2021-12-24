@@ -2,7 +2,7 @@ package com.gildedrose.strategy
 
 import com.gildedrose.Item
 
-case class DefaultStrategy() extends Strategy {
+class DefaultStrategy extends Strategy {
   override def updateQuality(item: Item): Unit = {
     item.sellIn = item.sellIn - 1
     if (item.quality > 0) {
