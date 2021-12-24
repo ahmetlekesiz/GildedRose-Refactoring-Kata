@@ -69,8 +69,24 @@ class GildedRoseTest  extends AnyFlatSpec with Matchers {
     app.items(0).quality should equal(expected)
   }
 
+  "quality of Backstage passes" should "increase by 1 when there are more than 10 days for sellIn" in {
+    val items = Array[Item](new Item("Backstage passes to a TAFKAL80ETC concert", 15, 20))
+    val app = new GildedRose(items)
+    app.updateQuality()
+    val expected = 21
+    app.items(0).quality should equal(expected)
+  }
+
   "quality of Backstage passes" should "increase by 2 when there are 10 days or less" in {
     val items = Array[Item](new Item("Backstage passes to a TAFKAL80ETC concert", 10, 20))
+    val app = new GildedRose(items)
+    app.updateQuality()
+    val expected = 22
+    app.items(0).quality should equal(expected)
+  }
+
+  "quality of Backstage passes" should "increase by 2 when sellIn between 5 and 10" in {
+    val items = Array[Item](new Item("Backstage passes to a TAFKAL80ETC concert", 8, 20))
     val app = new GildedRose(items)
     app.updateQuality()
     val expected = 22
@@ -93,7 +109,7 @@ class GildedRoseTest  extends AnyFlatSpec with Matchers {
     app.items(0).quality should equal(expected)
   }
 
-  "quality of Conjured items" should "degrade in Quality twice as fast as normal items" in {
+  "quality of Conjured items" should "degrade twice as fast as normal items" in {
     val items = Array[Item](new Item("Conjured Mana Cake", 5, 10))
     val app = new GildedRose(items)
     app.updateQuality()
@@ -101,7 +117,7 @@ class GildedRoseTest  extends AnyFlatSpec with Matchers {
     app.items(0).quality should equal(expected)
   }
 
-  "quality of Conjured items" should "degrade in Quality twice as fast as normal items when the sell by date has passed" in {
+  "quality of Conjured items" should "degrade twice as fast as normal items when the sell by date has passed" in {
     val items = Array[Item](new Item("Conjured Mana Cake", 0, 10))
     val app = new GildedRose(items)
     app.updateQuality()
